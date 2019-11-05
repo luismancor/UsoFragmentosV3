@@ -6,6 +6,8 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.usofragmentosv3.ContactosFragmento;
 import com.example.usofragmentosv3.R;
 
 /**
@@ -15,7 +17,7 @@ import com.example.usofragmentosv3.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[] {R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[] {R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3, R.string.tab_text_4};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -27,6 +29,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
+        //Se agrega una accion a cada fragmento segun su posicion
+        switch (position){
+            case 0:
+                ContactosFragmento frmContactos = new ContactosFragmento();
+                return frmContactos;
+            case 1:
+                return PlaceholderFragment.newInstance(position + 1);
+            case 2:
+                return PlaceholderFragment.newInstance(position + 1);
+        }
         return PlaceholderFragment.newInstance(position + 1);
     }
 
@@ -39,6 +51,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 2;
+        return 4;
     }
 }
