@@ -1,61 +1,64 @@
 package com.example.usofragmentosv3;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ContactosFragmento.OnFragmentInteractionListener} interface
+ * {@link OtroFragmento.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class ContactosFragmento extends Fragment {
+public class OtroFragmento extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public ContactosFragmento() {
+    public OtroFragmento() {
         // Required empty public constructor
     }
 
-    ListView lstContactos;
+
+    Button btnFragmento1,btnFragmento2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_contactos_fragmento, container, false);
-        lstContactos = view.findViewById(R.id.lstContactos);
-        String[]values = new String[20];
-        for(int i=0; i<values.length;i++){
-            values[i]= "Usuario"+i;
-        }
-        //creamos el adaptador para el array
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, android.R.id.text1, values);
-        lstContactos.setAdapter(adapter);
-
-        //darle funcion de click a cada item de lista
-        lstContactos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        View view = inflater.inflate(R.layout.fragment_otro_fragmento,container,false);
+        btnFragmento1 = view.findViewById(R.id.btnFragmento1);
+        btnFragmento2 = view.findViewById(R.id.btnFragmento2);
+        //cambia el frame por el fragment1
+        btnFragmento1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                int posicion =i;
-                String valor = lstContactos.getItemAtPosition(posicion).toString();
-                Intent mostrar = new Intent(getContext(),DetallesContacto.class);
-                mostrar.putExtra("nombre",valor);
-                startActivity(mostrar);
+            public void onClick(View v) {
+                Fragmento1 fragmento1 = new Fragmento1();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.contenedor,fragmento1);
+                transaction.commit();
             }
         });
+        //boton 2
+        btnFragmento2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragmento2 fragmento2 = new Fragmento2();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.contenedor,fragmento2);
+                transaction.commit();
+            }
+        });
+
+
         return view;
     }
 
