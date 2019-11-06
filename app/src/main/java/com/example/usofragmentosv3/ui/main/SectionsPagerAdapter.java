@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.usofragmentosv3.AdicionalFragmento;
 import com.example.usofragmentosv3.ContactosFragmento;
+import com.example.usofragmentosv3.ContenedorMusicas;
 import com.example.usofragmentosv3.MusicaFragmento;
 import com.example.usofragmentosv3.OtroFragmento;
 import com.example.usofragmentosv3.R;
@@ -38,7 +39,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 ContactosFragmento frmContactos = new ContactosFragmento();
                 return frmContactos;
             case 1:
-                MusicaFragmento frmMusicas = new MusicaFragmento();
+                ContenedorMusicas frmMusicas = new ContenedorMusicas();
                 return frmMusicas;
             case 2:
                 OtroFragmento frmOtro = new OtroFragmento();

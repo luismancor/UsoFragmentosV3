@@ -269,7 +269,5 @@ public class MusicaFragmento extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public void setInteractionListener(OnFragmentInteractionListener mListener){
-        this.mListener = mListener;
-    }
+
 }
