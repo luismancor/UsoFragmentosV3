@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetallesContacto"
-            android:parentActivityName=".MainActivity">
-        </activity>
-
+        <activity android:name=".ListaMusica"></activity>
+        <activity
+            android:name=".DetallesContacto"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
