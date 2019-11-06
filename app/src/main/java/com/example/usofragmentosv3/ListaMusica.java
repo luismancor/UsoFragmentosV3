@@ -6,8 +6,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,7 +22,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaMusica extends AppCompatActivity {
+public class ListaMusica extends AppCompatActivity implements MusicaFragmento.OnFragmentInteractionListener{
     private ListView lstMusicas;
     private List<String> item = null;
     private String ruta = Environment.getExternalStorageDirectory() + "/Download/";
@@ -110,7 +112,9 @@ public class ListaMusica extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
-
+    }
 }
 

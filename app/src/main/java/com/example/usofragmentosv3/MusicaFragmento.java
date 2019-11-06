@@ -58,13 +58,15 @@ public class MusicaFragmento extends Fragment {
         imagenButton= view.findViewById(R.id.imgMusicaLista);
 
       //EXAMPLE  String myValue = this.getArguments().getString("message");
-        String musica= this.getArguments().getString("musica");
-        String nombre= this.getArguments().getString("nombre");
-        try {
-            playAudio(musica);
-            //lblNombre.setText(nombre);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(getArguments()!=null) {
+            String musica = this.getArguments().getString("musica");
+            String nombre = this.getArguments().getString("nombre");
+            try {
+                playAudio(musica);
+                //lblNombre.setText(nombre);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         //METODO ANTIGUO PARA ENVIAR ENTRE INTETS
@@ -265,5 +267,9 @@ public class MusicaFragmento extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void setInteractionListener(OnFragmentInteractionListener mListener){
+        this.mListener = mListener;
     }
 }
