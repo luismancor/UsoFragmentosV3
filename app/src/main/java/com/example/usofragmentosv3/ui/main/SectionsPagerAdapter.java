@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.usofragmentosv3.AdicionalFragmento;
 import com.example.usofragmentosv3.ContactosFragmento;
 import com.example.usofragmentosv3.OtroFragmento;
 import com.example.usofragmentosv3.R;
@@ -40,6 +41,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 OtroFragmento frmOtro = new OtroFragmento();
                 return  frmOtro;
+            case 3:
+                AdicionalFragmento frmAdicional = new AdicionalFragmento();
+                return  frmAdicional;
 
         }
         return PlaceholderFragment.newInstance(position + 1);
